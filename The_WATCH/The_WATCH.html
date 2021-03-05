@@ -1,0 +1,168 @@
+<div class='sheet-container'>
+    <div class='sheet-header'>
+    	<div class='sheet-2colrow'>
+        	<div class='sheet-col'>
+            	<div class='sheet-attrblock'>
+                	<div class="row">
+	                  <label class='sheet-label' data-i18n="name-u">Name:</label>
+    	              <input type="text" class='sheet-input' name="attr_character_name" placeholder="Character Name" />
+        	        </div>
+            	    <div class="row">
+                	  <label class='sheet-label' data-i18n="title-u">Title:</label>
+	                  <input type="text" class='sheet-input' name="attr_character_title" placeholder="Character Title" />
+    	            </div>
+    	            <br />
+				</div>
+			</div>
+        	<div class='sheet-col'>
+				<h1>
+					The W.A.T.C.H.<br/>
+					Personnel File
+				</h1>
+	        </div>
+      	</div>
+		<div class='sheet-4colrow'>
+			<div class="sheet-heading" data-i18n="attr-u">Attributes</div>
+				<div class="sheet-col">
+					<div class="sheet-skillblock">
+					<label class='sheet-label' data-i18n="agility-u">Agility:</label>
+					<select style="width:75px;" name="attr_agility_skill">
+						<option value="d4">d4</option>
+						<option value="d6">d6</option>
+						<option value="d8">d8</option>
+						<option value="d10">d10</option>
+						<option value="d12">d12</option>
+					</select>
+					<input type="radio" name="attr_selattr" value="@{agility_skill}" checked="checked">
+					</div>
+				</div>
+				<div class="sheet-col">
+					<div class="sheet-skillblock">
+					<label class='sheet-label' data-i18n="brawn-u">Brawn:</label>
+					<select style="width:75px;" name="attr_brawn_skill">
+						<option value="d4">d4</option>
+						<option value="d6">d6</option>
+						<option value="d8">d8</option>
+						<option value="d10">d10</option>
+						<option value="d12">d12</option>
+					</select>
+					<input type="radio" name="attr_selattr" value="@{brawn_skill}">
+					</div>
+				</div>
+				<div class="sheet-col">
+					<div class="sheet-skillblock">
+					<label class='sheet-label' data-i18n="ingenuity-u">Ingenuity:</label>
+					<select style="width:75px;" name="attr_ingenuity_skill">
+						<option value="d4">d4</option>
+						<option value="d6">d6</option>
+						<option value="d8">d8</option>
+						<option value="d10">d10</option>
+						<option value="d12">d12</option>
+					</select>
+					<input type="radio" name="attr_selattr" value="@{ingenuity_skill}">
+					</div>
+				</div>
+				<div class="sheet-col">
+					<div class="sheet-skillblock">
+						<label class='sheet-label' data-i18n="tenacity-u">Tenacity:</label>
+						<select style="width:75px;" name="attr_tenacity_skill">
+							<option value="d4">d4</option>
+							<option value="d6">d6</option>
+							<option value="d8">d8</option>
+							<option value="d10">d10</option>
+							<option value="d12">d12</option>
+						</select>
+						<input type="radio" name="attr_selattr" value="@{tenacity_skill}">
+					</div>
+				</div>
+			</div>
+    	</div>
+	<div class="sheet-tabs">
+		<div class="sheet-tab sheet-tab-skills">
+			<input type="radio" name="attr_tab" value="skills" checked="checked">
+			<span class="sheet-tab-label">Skills</span>
+    		<div class="sheet-tab-content">
+    		    <div class="sheet-content">
+
+				  	<div class="sheet-heading" data-i18n="skill-u">Skills</div>
+					<div class="sheet-block">
+                   		<div class="sheet-skillblock">
+							<input type="text" style="width: 125px;" name="attr_improvise" value="Improvise" disabled />
+							<input type="text" style="width: 500px;" name="attr_improvise_desc" value="The skill used when no other skill applies." disabled />
+							<input type="text" style="width: 75px;" name="attr_improvise_skill" value="d4" disabled />
+							<button type="roll" class="sheet-rollbutton" name="roll_skill" value="&{template:basic} {{type= Skill}} {{name= @{improvise}}} {{roll= [[@{improvise_skill} + @{selattr}]]}}"></button>
+							<fieldset class="repeating_skills">
+   		            	        <input type="text" style="width: 125px;" name="attr_skill_name" value="" data-i18n-placeholder="skillname-u" placeholder="Skill Name" />
+								<input type="text" style="width: 500px;" name="attr_skill_desc" value="" data-i18n-placeholder="skilldesc-u" placeholder="Skill Description" />
+                       			<select style="width:75px;" name="attr_skill">
+	                           		<option value="d4">d4</option>
+                               		<option value="d6">d6</option>
+	                                <option value="d8">d8</option>
+    		                        <option value="d10">d10</option>
+           			                <option value="d12">d12</option>
+	               	            </select>
+							    <button type="roll" class="sheet-rollbutton" name="roll_skill" value="&{template:basic} {{type= Skill}} {{name= @{skill_name} }} {{roll= [[@{skill} + @{selattr}]]}}"></button>
+							</fieldset>
+						</div>
+	                </div>
+			  </div>
+        	</div>
+        </div>
+		<div class="sheet-tab sheet-tab-equipment">
+			<input type="radio" name="attr_tab" value="equipment">
+			<span class="sheet-tab-label">Equipment</span>
+    		<div class="sheet-tab-content">
+    		    <div class="sheet-content">
+					<div class="sheet-heading" data-i18n="equip-u">Equipment</div>
+					<div class="sheet-block">
+                   		<div class="sheet-skillblock">
+							<fieldset class="repeating_skills">
+   		            	        <input type="text" style="width: 150px;" name="attr_equip_name" value="" data-i18n-placeholder="equipname-u" placeholder="Equipment Name" />
+								<input type="text" style="width: 500px;" name="attr_equip_desc" value="" data-i18n-placeholder="equipdesc-u" placeholder="Equipment Description" />
+							</fieldset>
+						</div>
+	                </div>
+    		    </div>
+    		</div>
+    	</div>
+		<div class="sheet-tab sheet-tab-notes">
+			<input type="radio" name="attr_tab" value="notes">
+			<span class="sheet-tab-label">Notes</span>
+    		<div class="sheet-tab-content">
+    		    <div class="sheet-content">
+    		        <textarea style="width: 98%; min-height: 300px;" name="attr_notes"></textarea>
+    		    </div>
+    		</div>
+    	</div>
+    </div>
+</div>
+
+<rolltemplate class="sheet-rolltemplate-basic">
+    <div class="sheet-template-container">
+    	<div class="sheet-template-header" data-i18n="sc-u">{{type}} Check</div>
+	    <div class="sheet-template-row">{{name}}: {{roll}}
+    	</div>
+	</div>
+</rolltemplate>
+
+<rolltemplate class="sheet-rolltemplate-stat">
+    <div class="sheet-template-container">
+    	<div class="sheet-template-header" data-i18n="statc-u">Stat Check</div>
+	    <div class="sheet-template-row">
+	        {{#rollTotal() check 12}}
+	            Fumble {{name}}: {{check}}
+	        {{/rollTotal() check 12}}
+	        {{#rollTotal() check 2}}
+	            Crit {{name}}: {{roll}}
+	        {{/rollTotal() check 2}}
+	        {{#rollBetween() check 3 11}}
+	            {{name}}: {{check}}
+	        {{/rollBetween() check 3 11}}
+    	</div>
+	</div>
+</rolltemplate>
+
+<script type="text/worker">
+
+
+</script>
